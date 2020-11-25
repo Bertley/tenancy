@@ -1,0 +1,25 @@
+._1AAQ9zO7l19WrjzbtKBiKD {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px rgba(22, 22, 53, 0.16);
+  margin-bottom: 1rem;
+  padding: 0.33rem;
+  min-height: 2.66rem;
+  cursor: move; }
+
+._9443tk2L85drrlD6xh815 {
+  padding-left: 1rem;
+  position: relative; }
+
+._3TEolMEIESf0MmnvZzmhUZ {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #d9dee9;
+  width: 3px;
+  border-radius: 2px; }
+
+[data-kit-theme='dark'] ._1AAQ9zO7l19WrjzbtKBiKD {
+  background: #232135; }
+

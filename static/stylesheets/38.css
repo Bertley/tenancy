@@ -1,0 +1,23 @@
+._1OwgY6LQakTmCP7toik-WZ {
+  white-space: nowrap !important; }
+  ._1OwgY6LQakTmCP7toik-WZ .ant-table-body {
+    overflow-x: auto !important; }
+
+.qrifuxzawb6z-8F0vHOaZ {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center; }
+  .qrifuxzawb6z-8F0vHOaZ::before, .qrifuxzawb6z-8F0vHOaZ::after {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: #e4e9f0; }
+  .w-ktHYAHvFkMeJkrEzjKR {
+    flex-shrink: 0;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem; }
+
+[data-kit-theme='dark'] .qrifuxzawb6z-8F0vHOaZ::before, [data-kit-theme='dark'] .qrifuxzawb6z-8F0vHOaZ::after {
+  background-color: #232135; }
+

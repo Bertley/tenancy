@@ -1,0 +1,80 @@
+.IQcb1oKJdVbHeAMhyTyKP {
+  border-bottom: 1px solid #e4e9f0;
+  transition: all 0.1s ease-in-out; }
+  .IQcb1oKJdVbHeAMhyTyKP:hover {
+    background-color: #f2f4f8; }
+  .IQcb1oKJdVbHeAMhyTyKP:last-child {
+    border-bottom: none; }
+
+._1f9ftRIyscD3TnPgqZinOz {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  color: inherit;
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+  ._1f9ftRIyscD3TnPgqZinOz:hover {
+    color: inherit; }
+  ._1f9ftRIyscD3TnPgqZinOz:focus {
+    color: inherit; }
+
+.RvVslgt9DbGvIxQr8Pge1 {
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid #e4e9f0;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 2.8rem;
+  vertical-align: middle;
+  margin-right: 1.33rem;
+  margin-left: 1rem;
+  background-color: #fff;
+  flex-shrink: 0; }
+
+._1xyO8VWcSFBhKCYGHwCDL4 {
+  margin-left: auto;
+  white-space: nowrap;
+  width: 8px;
+  height: 15px;
+  margin-right: 1.33rem; }
+  ._1xyO8VWcSFBhKCYGHwCDL4 span {
+    transition: all 0.05s ease-in-out;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 15px;
+    height: 22px; }
+    ._1xyO8VWcSFBhKCYGHwCDL4 span:before {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      transform: rotate(45deg);
+      content: '';
+      width: 7px;
+      height: 2px;
+      background-color: var(--kit-color-primary);
+      border-radius: 5px; }
+    ._1xyO8VWcSFBhKCYGHwCDL4 span:after {
+      position: absolute;
+      top: 9px;
+      left: 0;
+      transform: rotate(-45deg);
+      content: '';
+      width: 7px;
+      height: 2px;
+      background-color: var(--kit-color-primary);
+      border-radius: 5px; }
+
+[data-kit-theme='dark'] .IQcb1oKJdVbHeAMhyTyKP {
+  border-bottom: 1px solid #232135; }
+  [data-kit-theme='dark'] .IQcb1oKJdVbHeAMhyTyKP:hover {
+    background-color: #141322; }
+  [data-kit-theme='dark'] .IQcb1oKJdVbHeAMhyTyKP:last-child {
+    border-bottom: none; }
+
+[data-kit-theme='dark'] .RvVslgt9DbGvIxQr8Pge1 {
+  background: #141322;
+  border-color: #232135; }
+

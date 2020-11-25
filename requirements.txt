@@ -1,0 +1,13 @@
+asgiref==3.2.9
+Django==3.0.7
+django-cors-headers==3.4.0
+django-tenant-schemas==1.10.0
+django-webpack-loader==0.7.0
+djangorestframework==3.11.0
+djangorestframework-jwt==1.11.0
+ordered-set==4.0.1
+psycopg2-binary==2.8.5
+PyJWT==1.7.1
+pytz==2020.1
+six==1.15.0
+sqlparse==0.3.1
