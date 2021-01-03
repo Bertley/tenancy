@@ -19,7 +19,7 @@ DATABASES = {
         "USER": "postgres",
         "PASSWORD": "",
         "HOST": "127.0.0.1",  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        "PORT": "",  # Set to empty string for default.
+        "PORT": "2012",  # Set to empty string for default.
     }
 }
 
@@ -71,13 +71,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = "/static/"
 
-# Additional locations of static files
-STATICFILES_DIRS = [
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'static'),
-]
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -96,6 +89,7 @@ TEST_RUNNER = "django.test.runner.DiscoverRunner"
 
 MIDDLEWARE = (
     "tenant_schemas.middleware.TenantMiddleware",
+    "corsheaders.middleware.CorsMiddleware", # Note that this needs to be placed above CommonMiddleware
     "django.middleware.common.CommonMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -103,6 +97,7 @@ MIDDLEWARE = (
     "django.contrib.messages.middleware.MessageMiddleware",
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'business.middleware.dev_cors_middleware'
 )
 
 ROOT_URLCONF = "business.urls_tenants"
@@ -141,20 +136,29 @@ MULTITENANT_TEMPLATE_DIRS = []
 SHARED_APPS = (
     "tenant_schemas",  # mandatory
     "customers",  # you must list the app where your tenant model resides in
+    "users", 
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework"
+    "rest_framework", 
+    "corsheaders",
 )
 
 TENANT_APPS = (
     # The following Django contrib apps must be in TENANT_APPS
+    'django.contrib.admin',
     "django.contrib.staticfiles",
     "django.contrib.contenttypes",
     "django.contrib.auth",
-    "rest_framework"
+    'django.contrib.sites',
+    "rest_framework", 
+    "corsheaders",
+
+    'django_countries',
+    "users", 
+    "core"
 )
 
 TENANT_MODEL = "customers.Client"  # app.Model
@@ -164,15 +168,45 @@ DEFAULT_FILE_STORAGE = "tenant_schemas.storage.TenantFileSystemStorage"
 INSTALLED_APPS = (
     "tenant_schemas",
     "customers",
+    "users", 
+    "core", 
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework"
+    'django.contrib.admin',
+
+    'django.contrib.sites',
+    "rest_framework", 
+    "corsheaders",
+    'django_countries',
 )
 
 SESSION_SERIALIZER = "django.contrib.sessions.serializers.JSONSerializer"
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100
+}
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'http://localhost:8000',
+    'http://localhost:8080',
+]
+
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'business.utils.my_jwt_response_handler'
+}
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -198,3 +232,16 @@ LOGGING = {
         },
     },
 }
+
+# MIDDLEWARE.append('business.middleware.dev_cors_middleware')
+
+MANAGER_APP_DIR = os.path.join(BASE_DIR, 'resources/manager')
+
+# Additional locations of static files
+STATICFILES_DIRS = [
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(MANAGER_APP_DIR, 'build', 'static'),
+]
